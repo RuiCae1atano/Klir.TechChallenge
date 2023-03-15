@@ -13,12 +13,11 @@ namespace Klir.TechChallenge.Infra.Data.EntitiesConfiguration
         public void Configure(EntityTypeBuilder<OrderItem> builder)
         {
             builder.HasKey(i => i.Id);
-            builder.HasOne(oi => oi.Order).WithMany(o => o.OrderItems).
-                    HasForeignKey(oi => oi.OrderId);
-            builder.HasOne(oi => oi.Product).WithMany(o => o.OrderItems).
-                    HasForeignKey(oi => oi.OrderId);
-            builder.Property(x => x.Price);
-            builder.Property(x => x.Quantity);
+            builder.HasOne(orderItem => orderItem.Product).WithMany(prd => prd.OrderItems)
+            .HasForeignKey(orderItem => orderItem.ProductId);
+
+            builder.HasData(new OrderItem(1,1,1)); //20
+            builder.HasData(new OrderItem(2,2,1)); //4
         }
     }
 }

@@ -12,6 +12,9 @@ namespace Klir.TechChallenge.Domain.Entities
         public int? PromotionId { get; private set; }
         public Promotion Promotion { get; private set; }
 
+        public ICollection<OrderItem> OrderItems { get; set; }
+
+
         public Product(int id, string name, decimal price, int? promotionId)
         {
             Id = id;

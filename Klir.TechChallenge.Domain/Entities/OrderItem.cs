@@ -6,19 +6,26 @@ namespace Klir.TechChallenge.Domain.Entities
 {
     public class OrderItem : Entity
     {
-        public int Quantity { get; set; }
-        public int Price { get; set; }
-        public ICollection<OrderItemProduct> OrderItemProducts { get; set; }
-
-        public int OrderId { get; set; }        
-        public Order Order { get; set; }
-
-        public OrderItem(int quantity, int price, int orderId)
+        public OrderItem(int id, int orderId, int productId, int quantity)
         {
-            Quantity = quantity;
-            Price = price;
+            Id = id;
             OrderId = orderId;
+            ProductId = productId;
+            Quantity = quantity;
         }
 
+        public OrderItem(int id, int productId, int quantity)
+        {
+            Id = id;
+            ProductId = productId;
+            Quantity = quantity;
+        }
+
+        public int ProductId { get; set; }
+        public int OrderId { get; set; }
+        public int Quantity { get; set; }
+
+        public Product Product { get; set; }     
+        public Order Order { get; set; }
     }
 }

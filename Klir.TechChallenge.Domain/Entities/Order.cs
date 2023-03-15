@@ -10,5 +10,12 @@ namespace Klir.TechChallenge.Domain.Entities
 
         public decimal Total { get; set; }
 
+        public Order(int id, decimal total, ICollection<OrderItem> orderItems)
+        {
+            Id = id;
+            Total = total;
+            OrderItems = orderItems;
+        }
+
     }
 }

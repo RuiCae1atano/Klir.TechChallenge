@@ -16,7 +16,7 @@ namespace Klir.TechChallenge.Infra.Data.EntitiesConfiguration
             builder.Property(x => x.Name);
             builder.Property(x => x.Price);
             builder.HasOne(e => e.Promotion).WithMany(e => e.Products)
-                .HasForeignKey(e => e.PromotionId);
+                    .HasForeignKey(e => e.PromotionId);
 
             builder.HasData(
                     new Product(1,"Product A", 20, 1),
@@ -25,13 +25,5 @@ namespace Klir.TechChallenge.Infra.Data.EntitiesConfiguration
                     new Product(4,"Product D", 4, 2)
                     );
         }
-
-        //public OrderItem(int quantity, int price, int productId, int orderId)
-        //{
-        //    Quantity = quantity;
-        //    Price = price;
-        //    ProductId = productId;
-        //    OrderId = orderId;
-        //}
     }
 }
