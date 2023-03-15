@@ -4,4 +4,18 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Identity\" />
+    <Folder Include="Repositories\" />
+    <Folder Include="EntitiesConfiguration\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Klir.TechChallenge.Domain\Klir.TechChallenge.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

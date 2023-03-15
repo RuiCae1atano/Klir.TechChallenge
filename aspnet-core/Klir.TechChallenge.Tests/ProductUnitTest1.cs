@@ -3,7 +3,7 @@ using Xunit;
 
 namespace KlirTechChallenge.Tests
 {
-    public class PromotionUnitTest1
+    public class ProductUnitTest1
     {
         [Fact]
         public void Test1()

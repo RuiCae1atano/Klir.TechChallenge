@@ -3,10 +3,10 @@ using Xunit;
 
 namespace KlirTechChallenge.Tests
 {
-    public class PromotionUnitTest1
+    public class OrderUnitTest1
     {
         [Fact]
-        public void Test1()
+        public void Should_CreateOrder_WithValidParameters()
         {
 
         }
