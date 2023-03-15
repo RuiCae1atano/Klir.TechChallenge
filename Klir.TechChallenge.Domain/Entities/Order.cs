@@ -6,7 +6,7 @@ namespace Klir.TechChallenge.Domain.Entities
 {
     public class Order : Entity
     {
-        public IEnumerable<OrderItem> OrderItens { get; set; }
+        public ICollection<OrderItem> OrderItems { get; set; }
 
         public decimal Total { get; set; }
 

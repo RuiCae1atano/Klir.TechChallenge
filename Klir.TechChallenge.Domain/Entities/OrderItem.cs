@@ -4,16 +4,21 @@ using System.Text;
 
 namespace Klir.TechChallenge.Domain.Entities
 {
-    public class OrderItem
+    public class OrderItem : Entity
     {
         public int Quantity { get; set; }
         public int Price { get; set; }
-        public int ProductId { get; set; }
-        
-        //this product should come with promotion as well
-        public Product Product { get; set; }
+        public ICollection<OrderItemProduct> OrderItemProducts { get; set; }
 
         public int OrderId { get; set; }        
+        public Order Order { get; set; }
+
+        public OrderItem(int quantity, int price, int orderId)
+        {
+            Quantity = quantity;
+            Price = price;
+            OrderId = orderId;
+        }
 
     }
 }
