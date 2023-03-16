@@ -12,15 +12,12 @@ namespace Klir.TechChallenge.Infra.Data.EntitiesConfiguration
         public void Configure(EntityTypeBuilder<Order> builder)
         {
             builder.HasKey(x => x.Id);
-            builder.Property(x => x.Total);
+            builder.Property(x => x.Total).HasPrecision(20, 4);
             builder.HasMany(order => order.OrderItems)
                 .WithOne(orderItem => orderItem.Order)
                 .HasForeignKey(orderItem => orderItem.OrderId);
 
-            builder.HasData(new Order(1, 30, new List<OrderItem>
-                                            { new OrderItem(1,1,1), 
-                                              new OrderItem(2,2,1)}
-                            ));
+            builder.HasData(new Order(1, 30));
         }
     }
 }

@@ -16,8 +16,8 @@ namespace Klir.TechChallenge.Infra.Data.EntitiesConfiguration
             builder.HasOne(orderItem => orderItem.Product).WithMany(prd => prd.OrderItems)
             .HasForeignKey(orderItem => orderItem.ProductId);
 
-            builder.HasData(new OrderItem(1,1,1)); //20
-            builder.HasData(new OrderItem(2,2,1)); //4
+            builder.HasData(new OrderItem (1,1,1,1)); //20
+            builder.HasData(new OrderItem(2,2,1,1)); //4
         }
     }
 }

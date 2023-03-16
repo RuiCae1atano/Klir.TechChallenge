@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Klir.TechChallenge.Domain.Interfaces
 {
-    public interface IPromotionRepository
+    public interface IOrderRepository
     {
-        Task<IEnumerable<Promotion>> GetPromotions();
-        Task<Promotion> GetById(int id);
-        Task<Promotion> CreatePromotion(Promotion promotion);
+        Task<IEnumerable<Product>> GetOrdersAsync();
+        Task<Order> GetByIdAsync(int id);
+        Task<Order> CreateOrderAsync(Order order);
     }
 }

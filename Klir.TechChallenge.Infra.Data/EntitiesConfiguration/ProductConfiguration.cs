@@ -14,7 +14,7 @@ namespace Klir.TechChallenge.Infra.Data.EntitiesConfiguration
         {
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Name);
-            builder.Property(x => x.Price);
+            builder.Property(x => x.Price).HasPrecision(20, 4);
             builder.HasOne(e => e.Promotion).WithMany(e => e.Products)
                     .HasForeignKey(e => e.PromotionId);
 

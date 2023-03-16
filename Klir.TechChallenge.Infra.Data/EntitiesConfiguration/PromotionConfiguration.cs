@@ -15,8 +15,8 @@ namespace Klir.TechChallenge.Infra.Data.EntitiesConfiguration
             builder.Property(x => x.Name);
 
             builder.HasData(
-                new Promotion(1, "Buy 1 Get 1 Free"),
-                new Promotion(2, "3 for 10 Euro")
+                new Promotion(1,"Buy 1 Get 1 Free"),
+                new Promotion(2,"3 for 10 Euro")
                 );
         }
     }

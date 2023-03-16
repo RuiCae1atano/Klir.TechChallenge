@@ -11,14 +11,10 @@ namespace Klir.TechChallenge.Domain.Entities
 
         public ICollection<Product> Products { get; set; }
 
-        public Promotion(string name)
-        {
-            ValidateDomain(name);
-        }
-
         public Promotion(int id, string name)
         {
             DomainExceptionValidation.When(id < 0, "Id Invalid value");
+            Id = id;
             ValidateDomain(name);
         }
 

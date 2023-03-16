@@ -6,6 +6,13 @@ namespace Klir.TechChallenge.Domain.Entities
 {
     public class OrderItem : Entity
     {
+        public int ProductId { get; set; }
+        public int OrderId { get; set; }
+        public int Quantity { get; set; }
+
+        public Product Product { get; set; }     
+        public Order Order { get; set; }
+
         public OrderItem(int id, int orderId, int productId, int quantity)
         {
             Id = id;
@@ -20,12 +27,5 @@ namespace Klir.TechChallenge.Domain.Entities
             ProductId = productId;
             Quantity = quantity;
         }
-
-        public int ProductId { get; set; }
-        public int OrderId { get; set; }
-        public int Quantity { get; set; }
-
-        public Product Product { get; set; }     
-        public Order Order { get; set; }
     }
 }
