@@ -4,5 +4,15 @@
     {
         public int Id { get; set; }
         public string Name { get; set; }
+
+        public PromotionDTO()
+        {
+
+        }
+
+        public PromotionDTO(string name)
+        {
+            Name = name;
+        }
     }
 }

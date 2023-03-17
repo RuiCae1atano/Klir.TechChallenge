@@ -12,11 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-    <Folder Include="Interfaces\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\..\Klir.TechChallenge.Infra.IoC\Klir.TechChallenge.Infra.IoC.csproj" />
   </ItemGroup>
 

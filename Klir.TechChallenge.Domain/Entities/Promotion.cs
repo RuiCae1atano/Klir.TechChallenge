@@ -18,6 +18,11 @@ namespace Klir.TechChallenge.Domain.Entities
             ValidateDomain(name);
         }
 
+        public Promotion(string name)
+        {
+            ValidateDomain(name);
+        }
+
         private void ValidateDomain(string name)
         {
             DomainExceptionValidation.When(string.IsNullOrEmpty(name), 
