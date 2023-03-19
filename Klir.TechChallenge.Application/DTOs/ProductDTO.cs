@@ -1,6 +1,6 @@
 ﻿using Klir.TechChallenge.Domain.Entities;
 
-namespace Klir.TechChallenge.Web.Api.DTOs
+namespace Klir.TechChallenge.Application.DTOs
 {
     public class ProductDTO
     {
@@ -8,7 +8,8 @@ namespace Klir.TechChallenge.Web.Api.DTOs
         public string Name { get; private set; }
         public decimal Price { get; private set; }
 
-        public Promotion Promotion{ get; set; }
+        public PromotionDTO Promotion{ get; private set; }
         public int? PromotionId { get; private set; }
+        public string PromotionName { get; set; }
     }
 }

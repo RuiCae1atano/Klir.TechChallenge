@@ -1,4 +1,4 @@
-﻿namespace Klir.TechChallenge.Web.Api.DTOs
+﻿namespace Klir.TechChallenge.Application.DTOs
 {
     public class PromotionDTO
     {

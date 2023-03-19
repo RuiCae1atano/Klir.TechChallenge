@@ -1,12 +1,12 @@
 ﻿using Klir.TechChallenge.Domain.Entities;
 using Klir.TechChallenge.Domain.Interfaces;
 using Klir.TechChallenge.Infra.IoC;
-using Klir.TechChallenge.Web.Api.DTOs;
-using Klir.TechChallenge.Web.Api.Interfaces;
+using Klir.TechChallenge.Application.DTOs;
+using Klir.TechChallenge.Application.Interfaces;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Klir.TechChallenge.Web.Api.Services
+namespace Klir.TechChallenge.Application.Services
 {
     public class PromotionService : IPromotionService
     {

@@ -24,24 +24,6 @@ namespace Klir.TechChallenge.Infra.IoC
 
             return dto;
         }
-
-        public static TEntity ToEntity<TEntity, TDto>(this TDto dto) where TEntity : new()
-        {
-            var entity = new TEntity();
-            var entityProperties = typeof(TEntity).GetProperties();
-            var dtoProperties = typeof(TDto).GetProperties();
-
-            foreach (var entityProperty in entityProperties)
-            {
-                var dtoProperty = dtoProperties.FirstOrDefault(p => p.Name == entityProperty.Name);
-                if (dtoProperty != null && dtoProperty.PropertyType == entityProperty.PropertyType)
-                {
-                    entityProperty.SetValue(entity, dtoProperty.GetValue(dto));
-                }
-            }
-
-            return entity;
-        }
     }
 
 }

@@ -1,12 +1,12 @@
 ﻿using Klir.TechChallenge.Domain.Entities;
 using Klir.TechChallenge.Domain.Interfaces;
 using Klir.TechChallenge.Infra.IoC;
-using Klir.TechChallenge.Web.Api.DTOs;
-using Klir.TechChallenge.Web.Api.Interfaces;
+using Klir.TechChallenge.Application.DTOs;
+using Klir.TechChallenge.Application.Interfaces;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Klir.TechChallenge.Web.Api.Services
+namespace Klir.TechChallenge.Application.Services
 {
     public class ProductService : IProductService
     {
@@ -20,6 +20,10 @@ namespace Klir.TechChallenge.Web.Api.Services
         {
             var product = await _repository.GetByIdAsync(id);
             ProductDTO productDTO = product.ToDto<Product, ProductDTO>();
+            if (product.PromotionId != null)
+            {
+                productDTO.PromotionName = product.Promotion.Name;
+            }
             return productDTO;
         }
 
@@ -37,6 +41,10 @@ namespace Klir.TechChallenge.Web.Api.Services
             foreach (var pr in product)
             {
                 ProductDTO productDTO = pr.ToDto<Product, ProductDTO>();
+                if (pr.PromotionId != null) 
+                {
+                    productDTO.PromotionName = pr.Promotion.Name;
+                }
                 products.Add(productDTO);
             }
             return products;

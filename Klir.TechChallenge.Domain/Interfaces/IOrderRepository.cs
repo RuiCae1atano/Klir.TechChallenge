@@ -8,7 +8,6 @@ namespace Klir.TechChallenge.Domain.Interfaces
 {
     public interface IOrderRepository
     {
-        Task<IEnumerable<Product>> GetOrdersAsync();
         Task<Order> GetByIdAsync(int id);
         Task<Order> CreateOrderAsync(Order order);
     }

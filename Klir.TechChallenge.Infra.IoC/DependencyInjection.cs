@@ -25,6 +25,7 @@ namespace Klir.TechChallenge.Infra.IoC
             services.AddScoped<IOrderItemRepository, OrderItemRepository>();
             services.AddScoped<IPromotionRepository, PromotionRepository>();
             services.AddScoped<IProductRepository, ProductRepository>();
+
             return services;
         }
     }

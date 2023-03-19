@@ -1,6 +1,7 @@
 ﻿using Klir.TechChallenge.Domain.Entities;
 using Klir.TechChallenge.Domain.Interfaces;
 using Klir.TechChallenge.Infra.Data.Context;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,7 @@ namespace Klir.TechChallenge.Infra.Data.Repositories
 
         public async Task<Order> CreateOrderAsync(Order order)
         {
+
             _context.Orders.Add(order);
             await _context.SaveChangesAsync();
             return order;
@@ -27,12 +29,8 @@ namespace Klir.TechChallenge.Infra.Data.Repositories
 
         public async Task<Order> GetByIdAsync(int id)
         {
-            return await _context.Orders.FindAsync(id);
-        }
-
-        public Task<IEnumerable<Product>> GetOrdersAsync()
-        {
-            throw new NotImplementedException();
+            return await _context.Orders
+                .Include(ori => ori.OrderItems).ThenInclude(oi => oi.Product).ThenInclude(p => p.Promotion).FirstOrDefaultAsync(x => x.Id == id);
         }
     }
 }

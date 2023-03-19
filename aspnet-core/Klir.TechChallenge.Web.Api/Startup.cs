@@ -1,4 +1,6 @@
 using Klir.TechChallenge.Infra.IoC;
+using Klir.TechChallenge.Web.Api.Interfaces;
+using Klir.TechChallenge.Web.Api.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -38,6 +40,14 @@ namespace KlirTechChallenge.Web.Api
 
             services.AddControllers();
             services.AddInfrastructure(Configuration);
+            services.AddScoped<IOrderService, OrderService>();
+            services.AddScoped<IProductService, ProductService>();
+            services.AddScoped<IPromotionService, PromotionService>();
+            services.AddSwaggerGen();
+
+            services.AddControllers().AddNewtonsoftJson(options =>
+                    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+                );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -53,6 +63,13 @@ namespace KlirTechChallenge.Web.Api
             app.UseCors(AllowSpecificOrigins);
 
             app.UseAuthorization();
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Employee API V1");
+            });
 
             app.UseEndpoints(endpoints =>
             {

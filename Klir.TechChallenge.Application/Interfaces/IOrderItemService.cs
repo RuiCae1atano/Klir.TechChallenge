@@ -1,7 +1,7 @@
 ﻿using Klir.TechChallenge.Domain.Entities;
 using System.Threading.Tasks;
 
-namespace Klir.TechChallenge.Web.Api.Interfaces
+namespace Klir.TechChallenge.Application.Interfaces
 {
     public interface IOrderItemService
     {
