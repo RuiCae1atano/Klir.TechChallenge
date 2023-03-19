@@ -9,6 +9,6 @@ namespace Klir.TechChallenge.Application.Interfaces
     {
         Task<IEnumerable<PromotionDTO>> GetPromotions();
         Task<PromotionDTO> GetById(int id);
-        Task<PromotionDTO> CreatePromotion(PromotionDTO promotion);
+        Task<bool> CreatePromotion(PromotionDTO promotion);
     }
 }

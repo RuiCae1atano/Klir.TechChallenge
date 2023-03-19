@@ -8,6 +8,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Klir.TechChallenge.Infra.Data.Repositories;
 using Klir.TechChallenge.Domain.Interfaces;
+using Klir.TechChallenge.Application.Interfaces;
+using Klir.TechChallenge.Application.Services;
 
 namespace Klir.TechChallenge.Infra.IoC
 {
@@ -25,6 +27,10 @@ namespace Klir.TechChallenge.Infra.IoC
             services.AddScoped<IOrderItemRepository, OrderItemRepository>();
             services.AddScoped<IPromotionRepository, PromotionRepository>();
             services.AddScoped<IProductRepository, ProductRepository>();
+
+            services.AddScoped<IOrderService, OrderService>();
+            services.AddScoped<IProductService, ProductService>();
+            services.AddScoped<IPromotionService, PromotionService>();
 
             return services;
         }

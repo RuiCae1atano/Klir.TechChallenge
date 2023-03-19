@@ -10,7 +10,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Klir.TechChallenge.Domain\Klir.TechChallenge.Domain.csproj" />
-    <ProjectReference Include="..\Klir.TechChallenge.Infra.IoC\Klir.TechChallenge.Infra.IoC.csproj" />
   </ItemGroup>
 
 </Project>

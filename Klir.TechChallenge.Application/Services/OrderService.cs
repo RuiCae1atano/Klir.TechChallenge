@@ -1,6 +1,5 @@
 ﻿using Klir.TechChallenge.Domain.Entities;
 using Klir.TechChallenge.Domain.Interfaces;
-using Klir.TechChallenge.Infra.IoC;
 using Klir.TechChallenge.Application.DTOs;
 using Klir.TechChallenge.Application.Interfaces;
 using System.Collections.Generic;
@@ -29,18 +28,7 @@ namespace Klir.TechChallenge.Application.Services
         public async Task<OrderDTO> GetByIdAsync(int id)
         {
             var order = await _repository.GetByIdAsync(id);
-            var orderDTO = order.ToDto<Order, OrderDTO>();
-
-
-            var result = new List<OrderItemDTO>();
-
-            foreach (var collection in order.OrderItems)
-            {
-                var d = new OrderItemDTO(collection.Quantity, collection.Product.Name, collection.Product.Price, collection.Product.Promotion.Name);                
-                result.Add(d);
-            }
-            orderDTO.OrderItems = result;
-
+            var orderDTO = _mapper.Map<OrderDTO>(order);
             return orderDTO;
         }
     }

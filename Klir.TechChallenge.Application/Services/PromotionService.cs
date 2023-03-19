@@ -1,10 +1,10 @@
 ﻿using Klir.TechChallenge.Domain.Entities;
 using Klir.TechChallenge.Domain.Interfaces;
-using Klir.TechChallenge.Infra.IoC;
 using Klir.TechChallenge.Application.DTOs;
 using Klir.TechChallenge.Application.Interfaces;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using AutoMapper;
 
 namespace Klir.TechChallenge.Application.Services
 {
@@ -12,33 +12,33 @@ namespace Klir.TechChallenge.Application.Services
     {
 
         private IPromotionRepository _repository;
-        public PromotionService(IPromotionRepository promotionRepository)
+        private readonly IMapper _mapper;
+
+        public PromotionService(IPromotionRepository promotionRepository, IMapper mapper)
         {
             _repository = promotionRepository;
+            _mapper = mapper;
         }
-        public async Task<PromotionDTO> CreatePromotion(PromotionDTO promotion)
+        public async Task<bool> CreatePromotion(PromotionDTO promotionDTO)
         {
-            var promo = new Promotion(promotion.Name);
-
-            await _repository.CreatePromotion(promo);
-            return promotion;
+            var promotionEntity = _mapper.Map<Promotion>(promotionDTO);
+            await _repository.CreatePromotion(promotionEntity); 
+            return true;
         }
 
         public async Task<PromotionDTO> GetById(int id)
         {
-            var promotion = await _repository.GetById(id);
-            PromotionDTO promotionDTO = promotion.ToDto<Promotion, PromotionDTO>();
+            var promotionEntity = await _repository.GetById(id);
+            var promotionDTO = _mapper.Map<PromotionDTO>(promotionEntity);
+
             return promotionDTO;
         }
 
         public async Task<IEnumerable<PromotionDTO>> GetPromotions()
         {
-            var promotion = await _repository.GetPromotions();
-            var promotionDTO = new List<PromotionDTO>();
-            foreach (var pr in promotion)
-            {
-                promotionDTO.Add(pr.ToDto<Promotion, PromotionDTO>());
-            }
+            var promotionEntity = await _repository.GetPromotions();
+            var promotionDTO = _mapper.Map<IEnumerable<PromotionDTO>>(promotionEntity);
+
 
             return promotionDTO;
         }

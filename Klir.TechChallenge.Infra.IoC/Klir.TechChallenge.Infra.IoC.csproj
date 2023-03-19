@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Klir.TechChallenge.Application\Klir.TechChallenge.Application.csproj" />
     <ProjectReference Include="..\Klir.TechChallenge.Infra.Data\Klir.TechChallenge.Infra.Data.csproj" />
   </ItemGroup>
 

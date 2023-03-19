@@ -1,4 +1,4 @@
-﻿using Klir.TechChallenge.Web.Api.Interfaces;
+﻿using Klir.TechChallenge.Application.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
