@@ -27,16 +27,16 @@ namespace Klir.TechChallenge.Web.Api.Controllers
         [Route("GetPromotions/{id}")]
         public async Task<IActionResult> GetPromotions(int id)
         {
-            var orders = await _service.GetProductPromotionAsync(id);
-            return Ok(orders);
+            var promotions = await _service.GetProductPromotionAsync(id);
+            return Ok(promotions);
         }
 
         [HttpGet]
         [Route("GetAllProducts")]
         public async Task<IActionResult> GetProducts()
         {
-            var orders = await _service.GetProductsAsync();
-            return Ok(orders);
+            var products = await _service.GetProductsAsync();
+            return Ok(products);
         }
     }
 }
