@@ -1,5 +1,5 @@
-﻿using Klir.TechChallenge.Web.Api.DTOs;
-using Klir.TechChallenge.Web.Api.Interfaces;
+﻿using Klir.TechChallenge.Application.DTOs;
+using Klir.TechChallenge.Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 

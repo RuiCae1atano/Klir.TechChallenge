@@ -5,32 +5,25 @@ using Klir.TechChallenge.Application.DTOs;
 using Klir.TechChallenge.Application.Interfaces;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using AutoMapper;
 
 namespace Klir.TechChallenge.Application.Services
 {
     public class OrderService : IOrderService
     {
         private IOrderRepository _repository;
+        private readonly IMapper _mapper;
 
-        public OrderService(IOrderRepository orderRepository)
+        public OrderService(IOrderRepository orderRepository, IMapper mapper)
         {
             _repository = orderRepository;
+            _mapper = mapper;
         }
         public async Task<OrderDTO> CreateOrderAsync(OrderDTO orderDTO)
         {
-            var orderItemList;
-            //dto to entity
-            foreach (var item in collection)
-            {
-
-            }
-
-            var order = new Order(orderDTO.Total,);
-
-
-
-            await _repository.CreateOrderAsync(order);
-            return order.ToDto<Order, OrderDTO>();
+            var orderEntiy = _mapper.Map<Order>(orderDTO);
+            await _repository.CreateOrderAsync(orderEntiy);
+            return orderDTO;
         }
 
         public async Task<OrderDTO> GetByIdAsync(int id)
