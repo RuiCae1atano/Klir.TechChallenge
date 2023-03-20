@@ -7,8 +7,10 @@
             <h5 class="card-title">{{ product.name }}</h5>
             <p class="card-text">{{ product.price }}</p>
             <p class="card-text"><small>{{ product.promotion }}</small></p>
-            <button class="btn btn-success" (click)="addToCart(product.id, product)">Add to Cart</button>
-            <!-- <button class="btn btn-danger" (click)="deleteProduct(i)">Delete</button> -->
+            <button class="btn btn-success" ng-model="clicked" (click)="onclick(product)">Add to Cart</button>
+            <div class="man-buttons">
+               <product-details ng-show="clicked"></product-details> 
+            </div>
           </div>
         </div>
       </div>

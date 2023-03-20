@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { IProduct } from 'src/app/models/product';
+import { ShoppingCart } from 'src/app/models/shopping-cart';
 import { ProductService } from 'src/app/service/product/product.service';
 
 @Component({
@@ -11,35 +12,34 @@ import { ProductService } from 'src/app/service/product/product.service';
 export class ProductComponent implements OnInit, OnDestroy {
   sub!: Subscription;
   products: IProduct[] = [];
-  shoppingCart = [];
   errorMessage: string = '';
+  shoppingCart : ShoppingCart;
+  itemProduct: ICartItem;
 
   constructor(private productService: ProductService) { }
 
-  addProduct() {
-    // Add a new product to the end of the array
-    // if (this.shoppingCart
-    // const existingItem = this.items.find(item => item.product.id === product.id);
-
-
-    // this.shoppingCart.push({
-    //   id: this.products.length + 1,
-    //   name: this.products[length].name,
-    //   price: this.products[length].price,
-    //   promotion: this.products[length].promotion
-    // });
+  removeProduct(index: number) {
+    this.shoppingCart.removeItem(index);
+    console.log(this.shoppingCart);
   }
 
-  deleteProduct(index: number) {
-    // Remove the product at the given index
-    // this.products.splice(index, 1);
+
+  onClick(product:IProduct): void{
+    this.addToCart(product);
+    //change the buttons
+    
   }
 
-  addToCart(productId: number) {
-    // Add the product with the given id to the shopping cart
-    console.log(`Product ${productId} added to cart`);
-  }
+  addToCart(product:IProduct) {   
+    this.itemProduct.id = product.id;
+    this.itemProduct.name = product.name;
+    this.itemProduct.price = product.price;
+    this.itemProduct.promotionId = product.promotionId;
+    this.itemProduct.promotionName = product.promotionName;
 
+    this.shoppingCart.addItem(this.itemProduct);
+    console.log(this.shoppingCart);
+  }
 
   ngOnInit(): void {
     this.sub = this.productService.getProducts().subscribe({
