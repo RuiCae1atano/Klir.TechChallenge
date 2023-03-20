@@ -1,4 +1,5 @@
-﻿using Klir.TechChallenge.Application.Interfaces;
+﻿using Klir.TechChallenge.Application.DTOs;
+using Klir.TechChallenge.Application.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -37,6 +38,16 @@ namespace Klir.TechChallenge.Web.Api.Controllers
         {
             var products = await _service.GetProductsAsync();
             return Ok(products);
+        }
+
+
+        //needs to create a promotion 
+        [HttpPost]
+        [Route("UpdateProduct")]
+        public async Task<IActionResult> UpdateProduct(ProductDTO productDTO)
+        {
+            await _service.UpdateProduct(productDTO);
+            return Ok();
         }
     }
 }

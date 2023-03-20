@@ -39,5 +39,11 @@ namespace Klir.TechChallenge.Application.Services
 
             return productDTO;
         }
+
+        public async Task UpdateProduct(ProductDTO productDTO)
+        {
+            var productEntity = _mapper.Map<Product>(productDTO);
+            await _repository.UpdateProduct(productEntity);
+        }
     }
 }

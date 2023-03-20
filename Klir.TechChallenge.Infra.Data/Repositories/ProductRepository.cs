@@ -32,5 +32,13 @@ namespace Klir.TechChallenge.Infra.Data.Repositories
         {
             return await _context.Products.ToListAsync();
         }
+
+        public async Task UpdateProduct(Product product)
+        {
+            var prodToUpdate = await _context.Products.FindAsync(product.Id);
+            if(prodToUpdate != null)
+            _context.Update(product);
+            await _context.SaveChangesAsync();
+        }
     }
 }

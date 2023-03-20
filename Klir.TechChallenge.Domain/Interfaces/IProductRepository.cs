@@ -11,7 +11,6 @@ namespace Klir.TechChallenge.Domain.Interfaces
         Task<IEnumerable<Product>> GetProductsAsync();
         Task<Product> GetByIdAsync(int id);
         Task<Product> GetProductPromotionAsync(int id);
-
-
+        Task UpdateProduct(Product product);
     }
 }

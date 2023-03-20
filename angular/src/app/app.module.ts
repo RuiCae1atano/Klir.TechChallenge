@@ -6,12 +6,12 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
-import { HomeComponent } from './home/home.component';
-import { CounterComponent } from './counter/counter.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
-import { ProductComponent } from './product/product.component';
-import { ProductDetailsComponent } from './product-details/product-details.component';
-import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+import { HomeComponent } from './components/home/home.component';
+import { CounterComponent } from './components/counter/counter.component';
+import { FetchDataComponent } from './components/fetch-data/fetch-data.component';
+import { ProductComponent } from './components/product/product.component';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 
 @NgModule({
   declarations: [

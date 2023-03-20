@@ -10,5 +10,7 @@ namespace Klir.TechChallenge.Application.Interfaces
         Task<IEnumerable<ProductDTO>> GetProductsAsync();
         Task<ProductDTO> GetByIdAsync(int id);
         Task<ProductDTO> GetProductPromotionAsync(int id);
+
+        Task UpdateProduct(ProductDTO productDTO);
     }
 }

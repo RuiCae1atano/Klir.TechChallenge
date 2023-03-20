@@ -2,7 +2,7 @@
 {
     public class PromotionDTO
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public string Name { get; set; }
 
         public PromotionDTO(string name)
