@@ -42,4 +42,19 @@ export class ShoppingCartService {
         0
       );
     }
+
+    applyPromotions(){
+      this.items.forEach(item => {
+        if (item['Promotion Applied'] === 'Buy 1 Get 1 Free') {
+          if (item.quantity >= 2) {
+            item.totalPrice = Math.floor(item.quantity / 2) * item.price + (item.quantity % 2) * item.price;
+          }
+        } else if (item['Promotion Applied'] === '3 for 10 Euro') {
+          if (item.quantity >= 3) {
+            item.totalPrice = Math.floor(item.quantity / 3) * 10 + (item.quantity % 3) * item.price;
+          }
+        }
+      });  
+    }
+  
   }

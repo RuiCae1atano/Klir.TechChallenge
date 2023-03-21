@@ -28,7 +28,6 @@ export class ProductComponent implements OnInit, OnDestroy {
 
   onClick(product:IProduct): void{
     this.addToCart(product);
-    //change the buttons 
   }
 
   addToCart(product:IProduct) {   
