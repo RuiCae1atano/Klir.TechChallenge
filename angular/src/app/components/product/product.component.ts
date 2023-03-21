@@ -1,7 +1,7 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Injectable, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { IProduct } from 'src/app/models/product';
-import { ShoppingCart } from 'src/app/models/shopping-cart';
+import { ShoppingCartService } from 'src/app/service/cart/shopping-cart.service';
 import { ProductService } from 'src/app/service/product/product.service';
 
 @Component({
@@ -9,36 +9,38 @@ import { ProductService } from 'src/app/service/product/product.service';
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.css']
 })
+
+
+
 export class ProductComponent implements OnInit, OnDestroy {
   sub!: Subscription;
   products: IProduct[] = [];
   errorMessage: string = '';
-  shoppingCart : ShoppingCart;
   itemProduct: ICartItem;
+  
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService, private shoppingCart: ShoppingCartService) { }
 
   removeProduct(index: number) {
     this.shoppingCart.removeItem(index);
-    console.log(this.shoppingCart);
   }
 
 
   onClick(product:IProduct): void{
     this.addToCart(product);
-    //change the buttons
-    
+    //change the buttons 
   }
 
   addToCart(product:IProduct) {   
-    this.itemProduct.id = product.id;
-    this.itemProduct.name = product.name;
-    this.itemProduct.price = product.price;
-    this.itemProduct.promotionId = product.promotionId;
-    this.itemProduct.promotionName = product.promotionName;
+    var myItem = {} as ICartItem;
+    myItem.id = product.id;
+    myItem.name = product.name;
+    myItem.price = product.price;
+    myItem.promotionId = product.promotionId;
+    myItem.promotionName = product.promotionName;
 
-    this.shoppingCart.addItem(this.itemProduct);
-    console.log(this.shoppingCart);
+
+    this.shoppingCart.addItem(myItem);
   }
 
   ngOnInit(): void {

@@ -35,7 +35,7 @@
         <p *ngIf="cartItems.length === 0">Your cart is empty</p>
         <div *ngIf="cartItems.length > 0">
           <h4>Total Price: {{ getTotalPrice() }}</h4>
-          <button class="btn btn-primary">Checkout</button>
+          <button class="btn btn-primary" (click)="checkout()">Checkout</button>
         </div>
       </div>
     </div>

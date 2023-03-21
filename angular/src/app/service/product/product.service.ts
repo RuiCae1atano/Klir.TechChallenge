@@ -10,13 +10,13 @@ import { environment } from 'src/environments/environment';
 })
 export class ProductService {
 
-  private productUrl =  environment.apiUrl;
+  private productUrl =  environment.apiUrl + '/product';
 
   constructor(private http: HttpClient) { }
 
   getProducts(): Observable<IProduct[]> {
     return this.http.get<IProduct[]>(this.productUrl + '/GetAllProducts')
-    .pipe(tap(data => console.log('All', JSON.stringify(data))),
+    .pipe(tap(),
       catchError(this.handleError)
     );
   }

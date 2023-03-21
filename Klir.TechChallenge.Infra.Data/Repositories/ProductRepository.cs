@@ -30,7 +30,7 @@ namespace Klir.TechChallenge.Infra.Data.Repositories
 
         public async Task<IEnumerable<Product>> GetProductsAsync()
         {
-            return await _context.Products.ToListAsync();
+            return await _context.Products.Include(p => p.Promotion).ToListAsync();
         }
 
         public async Task UpdateProduct(Product product)

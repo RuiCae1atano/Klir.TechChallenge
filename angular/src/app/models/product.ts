@@ -1,9 +1,9 @@
 export interface IProduct{
-    id?: number
+    id: number
     name: string
     price: number
     promotionName?: string
-    promotionId?: number
+    promotionId: number
     image?: string
 }
 
