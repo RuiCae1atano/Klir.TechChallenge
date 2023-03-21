@@ -5,5 +5,5 @@ interface ICartItem {
     quantity: number;
     promotionId?: number;
     promotionName: string;
-    totalPrice: number
+    totalPrice?: number
   }

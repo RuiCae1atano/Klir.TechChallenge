@@ -13,7 +13,7 @@ import { ShoppingCartComponent } from 'src/app/components/shopping-cart/shopping
 export class OrderService {
 
 private apiUrl =  environment.apiUrl + '/order';
-constructor(private http: HttpClient, private shoopingCartService : ShoppingCartComponent) { }
+constructor(private http: HttpClient) { }
 
 createOrder(cartItems :ICartItem[]): Observable<IOrder>{
     let order : IOrder;
